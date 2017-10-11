@@ -6,16 +6,14 @@ public class Player_Move : MonoBehaviour {
 	public float turnSpeed;
 	public float jumpHeight;
 
-
-
 	void Update () {
-		var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;
-		var y = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
-		var z = Input.GetAxis("Veritical")* Time.delatTime * moveSpeed;
+	var z = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
+	var y = Input.GetAxis("Horizontal") * Time.deltaTime * turnSpeed;
+	var j = Input.GetAxis("Jump") * Time.deltaTime * jumpHeight;
 
-		transform.Rotate(0,y,0);
-		transform.Translate(0,0,z);
-		transform.Translate(0,j,0);
-	
+
+	transform.Translate(0,0,z);
+	transform.Rotate(0,y,0);
+	transform.Translate(0,j,0);
 	}
 }
