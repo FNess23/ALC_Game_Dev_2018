@@ -29,6 +29,12 @@ public class Flashlight : MonoBehaviour {
 			lightOn= true;
 			light.enabled = true;
 		}
-	
+	}
+	public void setlightOn(){
+		lightOn = true;
+	}
+
+	public bool islightOn(){
+		return lightOn;
 	}
 }
