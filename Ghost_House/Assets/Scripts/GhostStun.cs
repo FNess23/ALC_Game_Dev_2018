@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class GhostStun : MonoBehaviour {
@@ -23,17 +24,17 @@ public class GhostStun : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		print(other.gameObject.name);
 		print ("Collider" + flash);
-		if(other.gameObject.name == "Ghost" && flash == true){
+		if(other.gameObject.name == "Ghost" && flash == true ){
 			print("Ghost is stunned!");
 
 			other.GetComponent<Ghost_AI>().moveSpeed = 0f;
-			StartCoroutine(Wait(5));
+			StartCoroutine(Wait(5, other));
 		}
 	}
 
-	IEnumerator Wait(float time){
-		yield return new WaitForSeconds (time);
-		ghost.GetComponent<Ghost_AI>().moveSpeed = 5f;
+	IEnumerator Wait(float time, Collider other) {
+		yield return new WaitForSeconds(time);
+		other.gameObject.GetComponent<Ghost_AI>().moveSpeed = 5f;
 		print("Ghost is unstunned");
 
 	}
