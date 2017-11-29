@@ -6,7 +6,7 @@ public class Battery : MonoBehaviour {
 	public int power = 4;
 
 	public GameObject Flashlight;
-
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -19,7 +19,9 @@ public class Battery : MonoBehaviour {
 
 	void OnCollisionEnter(Collision other){
 		if(other.gameObject.tag == "Player"){
+			
 			Flashlight.gameObject.GetComponentInChildren<Flashlight>().currentPower = power;
+			
 			Destroy(gameObject);
 		}
 	}
